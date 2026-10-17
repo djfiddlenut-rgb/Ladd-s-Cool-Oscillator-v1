@@ -351,6 +351,12 @@ void TriOscProcessor::setStateInformation (const void* data, int size)
 
 AudioProcessorEditor* TriOscProcessor::createEditor() { return new TriOscEditor (*this); }
 
+// Entry point that JUCE's plugin wrapper calls to create the plugin
+juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+{
+    return new TriOscProcessor();
+}
+
 // ----------------------------------------------------------------- editor
 static constexpr int kCellW = 78, kRowH = 100, kLeft = 74;
 
